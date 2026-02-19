@@ -1,0 +1,73 @@
+# GitHub Pages Configuration
+
+# Build settings
+markdown: kramdown
+
+# Enable Jekyll processing
+lsi: false
+safe: true
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  lib_hygiene: false
+  parse_block_html: true
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Exclude files
+exclude:
+  - CHANGELOG.md
+  - LICENSE
+  - README.md
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+
+# Include files
+include:
+  - _canary.png
+  - .htaccess
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Site settings
+title: "EGEX"
+email: info@egex.ai
+description: "A modern, responsive static website. Perfect for GitHub Pages hosting!"
+baseurl: ""
+url: "https://username.github.io"
+twitter_username: ""
+github_username: ""
+
+# Timezone
+timezone: UTC
+
+# Output
+permalink: /:year/:month/:day/:title/
+future: false
