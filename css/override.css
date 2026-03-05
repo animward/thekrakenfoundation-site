@@ -1,0 +1,25 @@
+/* Site override: thekrakenfoundation.site */
+:root {
+--color-primary: #0e4d92;
+--color-primary-dim: #0a3a6e;
+--color-primary-bright: #1565c0;
+--color-bg: #fafafa;
+--color-surface: #fff;
+--color-surface-elevated: #f0f0f0;
+--color-text: #1a1a1a;
+--color-text-muted: #555;
+--color-border: rgba(14, 77, 146, 0.12);
+--color-border-strong: rgba(14, 77, 146, 0.3);
+--color-glow: rgba(14, 77, 146, 0.4);
+--font-heading: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+--font-body: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		--hero-title-color: #1a1a1a;
+		--hero-subtitle-color: #555;
+}
+
+.hero-fullscreen .hero-overlay {
+	background: linear-gradient(to bottom, rgba(250,250,250,0.2) 0%, rgba(250,250,250,0.8) 70%, rgba(250,250,250,1) 100%);
+}
+.gallery-grid { grid-template-columns: repeat(3, 1fr); }
+.gallery-item { aspect-ratio: 16/10; border-radius: 0; }
+
