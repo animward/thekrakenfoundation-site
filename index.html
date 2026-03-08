@@ -19,9 +19,16 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"The Kraken Foundation","alternateName":["Ego AI","EGEX","Ego Experiments Alien Intelligence"],"url":"https://thekrakenfoundation.site/","description":"The Kraken Foundation visual portfolio. Research operations, strategic impact, and Indigenous stewardship.","inLanguage":"en","publisher":{"@type":"Organization","name":"The Kraken Foundation","alternateName":["Ego AI","EGEX AI Corp","Ego Experiments Alien Intelligence Corporation","SOLACE"],"url":"https://egex.ai","sameAs":["https://www.linkedin.com/company/ego-experiments/","https://www.linkedin.com/company/kraken-foundation/","https://egoexperiments.com"]},"about":{"@type":"SoftwareApplication","name":"SOLACE","applicationCategory":"Middleware","description":"Advanced multi-agent middleware platform.","operatingSystem":"Multi-cloud","creator":{"@type":"Organization","name":"Ego AI"}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/arg-effects.css">
 <style>
+@font-face {
+  font-family: 'Alliance No2';
+  src: url('fonts/AllianceNo2-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   --bg:      #020408;
   --bg2:     #050812;
@@ -35,8 +42,9 @@
   --blue-dim: rgba(30,58,138,0.12);
   --border:  rgba(59,130,246,0.08);
   --border2: rgba(59,130,246,0.16);
-  --display: 'DM Serif Display', Georgia, serif;
-  --ui:      'Syne', sans-serif;
+  --display:  'DM Serif Display', Georgia, serif;
+  --ui:       'Alliance No2', 'Helvetica Neue', sans-serif;
+  --alliance: 'Alliance No2', 'Helvetica Neue', sans-serif;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -67,10 +75,12 @@ nav.scrolled {
   backdrop-filter: blur(10px);
 }
 .nav-brand {
-  font-family: var(--ui); font-size: 11px; font-weight: 800;
-  letter-spacing: 4px; color: var(--text);
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--alliance); font-size: 10px; font-weight: 300;
+  letter-spacing: 5px; color: var(--text);
   text-decoration: none; text-transform: uppercase;
 }
+.nav-brand img { height: 26px; opacity: 0.65; }
 .nav-brand span { color: var(--blue-br); }
 .nav-links {
   display: flex; gap: 32px;
@@ -359,7 +369,10 @@ footer p {
 <body>
 
 <nav id="nav">
-  <a href="/" class="nav-brand">The Kraken <span>Foundation</span></a>
+  <a href="/" class="nav-brand">
+    <img src="images/KRAKEN-W.png" alt="TKF">
+    <span>The Kraken Foundation</span>
+  </a>
   <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
   <div class="nav-links">
     <a href="#portfolio">Portfolio</a>
