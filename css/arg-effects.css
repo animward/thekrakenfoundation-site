@@ -1,0 +1,136 @@
+/**
+ * ARG EFFECTS — EGEX Network CSS Template
+ * Information Control Center — network-wide deployment
+ * 22 0 14 7 25 14 6 0 8 6 14 3 0 19 0 26
+ */
+
+/* ── CRT SCANLINES ─────────────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 3px
+  );
+  pointer-events: none; z-index: 9998;
+}
+
+/* ── GRAIN ──────────────────────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed; inset: 0; opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: arg-grain 0.1s steps(1) infinite;
+  pointer-events: none; z-index: 9999;
+}
+@keyframes arg-grain {
+  0%{transform:translate(0,0)} 25%{transform:translate(-2px,1px)}
+  50%{transform:translate(2px,-2px)} 75%{transform:translate(-1px,3px)} 100%{transform:translate(0,0)}
+}
+
+/* ── VIGNETTE ───────────────────────────────────────────────────────── */
+#arg-vignette {
+  position: fixed; inset: 0;
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.72) 100%);
+  pointer-events: none; z-index: 9997;
+}
+
+/* ── VHS TRACKING BANDS ─────────────────────────────────────────────── */
+#arg-vhs-track {
+  position: fixed; inset: 0; pointer-events: none; z-index: 9995; overflow: hidden;
+}
+.arg-vhs-band {
+  position: absolute; left: 0; right: 0;
+  background: linear-gradient(90deg, rgba(255,180,80,0.05), rgba(200,200,255,0.03), rgba(255,100,100,0.04), rgba(255,180,80,0.05));
+  mix-blend-mode: screen; opacity: 0;
+  animation: arg-band-sweep var(--dur,3s) var(--delay,0s) ease-in-out infinite;
+}
+@keyframes arg-band-sweep {
+  0%{top:110%;opacity:0} 5%{opacity:1} 70%{opacity:0.5} 90%{top:-5%;opacity:0} 100%{top:-5%;opacity:0}
+}
+
+/* ── WARM NOISE ─────────────────────────────────────────────────────── */
+#arg-warm-noise {
+  position: fixed; inset: 0; pointer-events: none; z-index: 9994; opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  animation: arg-warm-drift 0.15s steps(1) infinite;
+}
+@keyframes arg-warm-drift {
+  0%{transform:translate(0,0)} 25%{transform:translate(1px,-1px)}
+  50%{transform:translate(-1px,1px)} 75%{transform:translate(2px,0)} 100%{transform:translate(0,0)}
+}
+
+/* ── TIMECODE ───────────────────────────────────────────────────────── */
+#arg-timecode {
+  position: fixed; bottom: 12px; left: 14px;
+  font-family: 'Courier New', monospace; font-size: 9px; letter-spacing: 1px;
+  color: rgba(200,180,140,0.22); pointer-events: none; z-index: 200;
+}
+
+/* ── REC INDICATOR ──────────────────────────────────────────────────── */
+#arg-rec {
+  position: fixed; bottom: 12px; right: 14px;
+  font-family: 'Courier New', monospace; font-size: 8px; letter-spacing: 3px;
+  color: rgba(180,30,30,0.45); pointer-events: none; z-index: 200;
+  animation: arg-rec-blink 1.8s step-end infinite;
+}
+#arg-rec::before {
+  content: '● '; color: rgba(220,40,40,0.6);
+}
+@keyframes arg-rec-blink { 0%,100%{opacity:1} 50%{opacity:0.1} }
+
+/* ── INTERFERENCE BANNER ────────────────────────────────────────────── */
+#arg-interference {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: #8b0000; padding: 3px 0;
+  text-align: center; font-family: 'Courier New', monospace;
+  font-size: 8px; letter-spacing: 5px; color: rgba(0,0,0,0.75);
+  text-transform: uppercase; z-index: 999; pointer-events: none;
+  opacity: 0; animation: arg-intf-flash 15s ease-in-out infinite;
+}
+@keyframes arg-intf-flash {
+  0%,92%,100%{opacity:0;transform:scaleY(0)} 93%{opacity:1;transform:scaleY(1)}
+  96%{opacity:1;transform:scaleY(1)} 97%{opacity:0;transform:scaleY(0)}
+}
+
+/* ── STATIC BURST ───────────────────────────────────────────────────── */
+#arg-static-burst {
+  position: fixed; inset: 0; pointer-events: none; z-index: 9996;
+  opacity: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
+  background-size: 512px; mix-blend-mode: screen;
+  animation: arg-static 25s ease-in-out infinite;
+}
+@keyframes arg-static {
+  0%,87%,100%{opacity:0} 88%{opacity:0.1} 89%{opacity:0.05} 90%{opacity:0.12} 91%{opacity:0}
+}
+
+/* ── CORNER MARKS ───────────────────────────────────────────────────── */
+.arg-corner {
+  position: fixed; font-family: 'Courier New', monospace;
+  font-size: 7px; letter-spacing: 2px; color: rgba(139,0,0,0.2);
+  text-transform: uppercase; pointer-events: none; z-index: 100;
+  line-height: 1.6;
+}
+.arg-corner.tl { top: 8px; left: 10px; }
+.arg-corner.tr { top: 8px; right: 10px; text-align: right; }
+.arg-corner.bl { bottom: 28px; left: 10px; }
+.arg-corner.br { bottom: 28px; right: 10px; text-align: right; }
+
+/* ── TEXT GHOST DOUBLING ────────────────────────────────────────────── */
+p, li, h2, h3 {
+  text-shadow: 0.3px 0 rgba(255,80,80,0.07), -0.3px 0 rgba(0,200,255,0.05);
+  animation: arg-text-ghost 20s ease-in-out infinite;
+}
+@keyframes arg-text-ghost {
+  0%,93%,100%{text-shadow:0.3px 0 rgba(255,80,80,0.07),-0.3px 0 rgba(0,200,255,0.05)}
+  94%{text-shadow:2px 0 rgba(255,80,80,0.18),-1px 0 rgba(0,200,255,0.12);letter-spacing:0.1px}
+  95%{text-shadow:0.3px 0 rgba(255,80,80,0.07),-0.3px 0 rgba(0,200,255,0.05)}
+}
+
+/* ── LINK GLITCH ON HOVER ───────────────────────────────────────────── */
+a:hover { animation: arg-link-glitch 0.25s steps(1) 1; }
+@keyframes arg-link-glitch {
+  0%{filter:none} 30%{filter:brightness(1.5) hue-rotate(180deg)} 60%{filter:none} 80%{filter:brightness(0.7)} 100%{filter:none}
+}
